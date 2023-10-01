@@ -61,6 +61,9 @@ public class PhieuAdapterListView extends BaseAdapter {
         TextView tv_tra_sach = row.findViewById(R.id.tv_tra_sach);
         ImageView img_delete = row.findViewById(R.id.img_delete);
 
+
+        //fix lỗi
+
         SachDAO sachDAO = new SachDAO(context);
         SachDTO sachDTO = sachDAO.getSachById(phieuDTO.getMa_sach());
 
@@ -81,6 +84,7 @@ public class PhieuAdapterListView extends BaseAdapter {
             tv_tra_sach.setText("Trạng thái: Chưa trả");
         }
 
+        //end fix lỗi
 
         img_delete.setOnClickListener(new View.OnClickListener() {
             @Override

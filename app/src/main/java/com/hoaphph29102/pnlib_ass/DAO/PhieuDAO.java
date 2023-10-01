@@ -75,6 +75,8 @@ public class PhieuDAO {
         return db.delete("phieu","maPM=?",dieukien);
     }
 
+    //fix
+
     //get all
     public ArrayList<PhieuDTO> getAllPhieu(){
         ArrayList<PhieuDTO> list = new ArrayList<>();

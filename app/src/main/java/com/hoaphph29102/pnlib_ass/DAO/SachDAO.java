@@ -73,6 +73,9 @@ public class SachDAO {
         return list_sach;
     }
 
+
+    //fix
+
     //get sách by id
     public SachDTO getSachById(int id){
         SachDTO sachDTO = new SachDTO();

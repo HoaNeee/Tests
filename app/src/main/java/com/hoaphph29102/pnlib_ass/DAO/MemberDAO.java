@@ -72,7 +72,7 @@ public class MemberDAO {
         }
         return list_mem;
     }
-
+    //fix
     //get by id
     public MemberDTO getMemberById(int id){
         MemberDTO memberDTO = new MemberDTO();
