@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_phieu"
+        android:title="Quản lý phiếu mượn"
+        android:icon="@drawable/home"
+        />
+    <item
+        android:id="@+id/nav_loai_sach"
+        android:title="Quản lý loại sách"
+        android:icon="@drawable/managerbook"
+        />
+    <item
+        android:id="@+id/nav_sach"
+        android:title="Quản lý sách"
+        android:icon="@drawable/book"
+        />
+    <item
+        android:id="@+id/nav_thanh_vien"
+        android:title="Quản lý thành viên"
+        android:icon="@drawable/member"
+        />
+    <group android:checkableBehavior="single">
+        <item android:title="Thống kê">
+            <menu>
+                <item
+                    android:id="@+id/nav_top_10"
+                    android:title="10 sách mượn nhiều nhất"
+                    android:icon="@drawable/top10"
+                    />
+                <item
+                    android:id="@+id/nav_doanh_thu"
+                    android:title="Doanh thu"
+                    android:icon="@drawable/doanhthu"
+                    />
+            </menu>
+        </item>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item android:title="Người dùng">
+            <menu>
+                <item
+                    android:id="@+id/nav_add_user"
+                    android:title="Thêm người dùng"
+                    android:icon="@drawable/adduser"
+                    />
+                <item
+                    android:id="@+id/nav_doi_mat_khau"
+                    android:title="Đổi mật khẩu"
+                    android:icon="@drawable/doimk"
+                    />
+                <item
+                    android:id="@+id/nav_log_out"
+                    android:title="Đăng xuất"
+                    android:icon="@drawable/logout"
+                    />
+            </menu>
+        </item>
+
+    </group>
+</menu>

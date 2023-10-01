@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">PNLib_Ass</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="add_phieu">Add Phieu</string>
+    <string name="add_loai">Add loai sach</string>
+    <string name="add_sach">Add sach</string>
+    <string name="add_member">Add Member</string>
+</resources>

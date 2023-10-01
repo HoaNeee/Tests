@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="13dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp"
+    android:background="@color/white"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="#E6C7EC"
+
+        >
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="5dp"
+            >
+            <TextView
+                android:id="@+id/tv_ma_phieu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mã phiểu"
+                android:layout_marginLeft="7dp"
+
+                />
+            <TextView
+                android:id="@+id/tv_ho_ten"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên thành viên"
+                android:layout_marginLeft="5dp"
+
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tv_ten_sach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tên sách"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tv_tien"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tiền thuê"
+                android:layout_marginLeft="5dp"
+
+                />
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="70dp"
+            >
+            <TextView
+                android:id="@+id/tv_tra_sach"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Trả sách?"
+
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/tv_ngay_thue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ngày thuê"
+
+                />
+        </LinearLayout>
+        <ImageView
+            android:id="@+id/img_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_delete_forever_24"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="120dp"
+            />
+    </LinearLayout>
+
+
+</LinearLayout>

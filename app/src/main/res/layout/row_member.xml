@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="13dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginLeft="7dp"
+
+    >
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_ma_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã TV"
+            android:textSize="10dp"
+            />
+
+        <TextView
+            android:id="@+id/tv_ten_member"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên TV"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tv_nam_sinh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Năm sinh"
+            android:textSize="17dp"
+            />
+    </LinearLayout>
+
+
+
+    <ImageView
+        android:id="@+id/img_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_delete_forever_24"
+        android:layout_gravity="center_vertical"
+
+        />
+
+
+</LinearLayout>
