@@ -7,6 +7,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hoaphph29102.pnlib_ass.DAO.MemberDAO;
+import com.hoaphph29102.pnlib_ass.DAO.SachDAO;
+import com.hoaphph29102.pnlib_ass.DTO.MemberDTO;
 import com.hoaphph29102.pnlib_ass.DTO.PhieuDTO;
 import com.hoaphph29102.pnlib_ass.DTO.SachDTO;
 import com.hoaphph29102.pnlib_ass.R;
@@ -51,20 +54,32 @@ public class PhieuAdapterListView extends BaseAdapter {
         PhieuDTO phieuDTO = list_phieu.get(position);
 
         TextView tv_ma_phieu = row.findViewById(R.id.tv_ma_phieu);
-        TextView tv_ten_tv = row.findViewById(R.id.tv_ten_tv);
+        TextView tv_ten_tv = row.findViewById(R.id.tv_ho_ten);
         TextView tv_ten_sach = row.findViewById(R.id.tv_ten_sach);
-        TextView tv_gia_thue = row.findViewById(R.id.tv_gia_thue);
+        TextView tv_gia_thue = row.findViewById(R.id.tv_tien);
         TextView tv_ngay_thue = row.findViewById(R.id.tv_ngay_thue);
         TextView tv_tra_sach = row.findViewById(R.id.tv_tra_sach);
         ImageView img_delete = row.findViewById(R.id.img_delete);
 
+        SachDAO sachDAO = new SachDAO(context);
+        SachDTO sachDTO = sachDAO.getSachById(phieuDTO.getMa_sach());
 
-        tv_ma_phieu.setText(phieuDTO.getMa_phieu()+"");
-        tv_ten_tv.setText(phieuDTO.getTen_TV());
-        tv_ten_sach.setText(phieuDTO.getTen_sach());
-        tv_gia_thue.setText(phieuDTO.getTien_thue()+"");
-        tv_ngay_thue.setText(phieuDTO.getNgay_thue()+"");
-        tv_tra_sach.setText(phieuDTO.getTra_sach()+"");
+        MemberDAO memberDAO = new MemberDAO(context);
+        MemberDTO memberDTO = memberDAO.getMemberById(phieuDTO.getMaTV());
+
+
+
+        tv_ma_phieu.setText("Mã phiếu: " + phieuDTO.getMa_phieu());
+        tv_ten_tv.setText("Mã thành viên: " + memberDTO.getTen_tv());
+        tv_ten_sach.setText("Tên sách: " + sachDTO.getTen_sach());
+        tv_gia_thue.setText("Tiền thuê: " + phieuDTO.getTien_thue());
+        tv_ngay_thue.setText("Ngày thuê: " + phieuDTO.getNgay_thue()+"");
+        if (phieuDTO.getTra_sach() == 1){
+            tv_tra_sach.setText("Trạng thái: Đã trả");
+        }
+        else {
+            tv_tra_sach.setText("Trạng thái: Chưa trả");
+        }
 
 
         img_delete.setOnClickListener(new View.OnClickListener() {

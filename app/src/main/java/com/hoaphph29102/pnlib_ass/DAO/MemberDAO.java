@@ -72,4 +72,28 @@ public class MemberDAO {
         }
         return list_mem;
     }
+
+    //get by id
+    public MemberDTO getMemberById(int id){
+        MemberDTO memberDTO = new MemberDTO();
+        String sql = "SELECT * FROM thanhvien WHERE maTV = ?";
+        Cursor c = db.rawQuery(sql,new String[]{String.valueOf(id)});
+
+        if (c != null && c.getCount()>0){
+            c.moveToFirst();
+
+            while (!c.isAfterLast()){
+                int ma_tv = c.getInt(0);
+                String ho_ten = c.getString(1);
+                String nam_sinh = c.getString(2);
+
+                memberDTO = new MemberDTO(ma_tv,ho_ten,nam_sinh);
+
+                c.moveToNext();
+
+            }
+
+        }
+        return memberDTO;
+    }
 }
