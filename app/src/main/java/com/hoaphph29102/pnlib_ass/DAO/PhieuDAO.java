@@ -75,67 +75,29 @@ public class PhieuDAO {
         return db.delete("phieu","maPM=?",dieukien);
     }
 
+    //fix
 
-//    @SuppressLint("Range")
-//    public ArrayList<PhieuDTO> getAllPhieu() {
-//        ArrayList<PhieuDTO> list_phieu = new ArrayList<>();
-//        SQLiteDatabase db = dbHelper.getReadableDatabase();
-//
-//        String query = "SELECT phieu.*,thanhvien.hoten,sach.tensach,thuthu.maTT FROM phieu INNER JOIN thuthu ON phieu.maTT = thuthu.maTT " +
-//                "INNER JOIN thanhvien ON phieu.maTV = thanhvien.maTV " +
-//                "INNER JOIN sach ON phieu.masach = sach.masach";
-//
-//        Cursor cursor = db.rawQuery(query, null);
-//
-//        if (cursor.moveToFirst()) {
-//            do {
-//                PhieuDTO phieuDTO = new PhieuDTO();
-//                phieuDTO.setMa_phieu(cursor.getInt(cursor.getColumnIndex("maPM")));
-//
-//                phieuDTO.setTen_TV(cursor.getString(cursor.getColumnIndex("tenTV")));
-//                phieuDTO.setTen_sach(cursor.getString(cursor.getColumnIndex("tensach")));
-//                phieuDTO.setTien_thue(cursor.getInt(cursor.getColumnIndex("tienthue")));
-//                phieuDTO.setNgay_thue(cursor.getString(cursor.getColumnIndex("ngay")));
-//                phieuDTO.setTra_sach(cursor.getInt(cursor.getColumnIndex("trasach")));
-//
-//                list_phieu.add(phieuDTO);
-//            } while (cursor.moveToNext());
-//        }
-//
-//        cursor.close();
-//        return list_phieu;
-//    }
-
+    //get all
     public ArrayList<PhieuDTO> getAllPhieu(){
-
-        ArrayList<PhieuDTO> list_phieu = new ArrayList<>();
-
-        Cursor c = db.rawQuery("SELECT phieu.*, thanhvien.hoten , sach.tensach FROM phieu " +
-                "INNER JOIN thuthu ON phieu.maTT = thuthu.maTT " +
-                "INNER JOIN thanhvien ON phieu.maTV = thanhvien.maTV " +
-                "INNER JOIN sach ON phieu.masach = sach.masach",null);
-//        Cursor c = db.rawQuery("SELECT * FROM phieu",null);
-
-            if (c != null && c.getCount()>0){
-                c.moveToFirst();
-                while (!c.isAfterLast()){
-                    int ma_phieu = c.getInt(0);
-                    int ma_tv = c.getInt(1);
-                    String ten_tv = c.getString(2);
-                    int ma_sach = c.getInt(3);
-                    String ten_sach = c.getString(4);
-                    int gia_thue = c.getInt(5);
-                    String ngay_thue = c.getString(6);
-                    int tra_sach = c.getInt(7);
-                    int ma_thu_thu = c.getInt(8);
-
-                    PhieuDTO phieuDTO = new PhieuDTO(ma_phieu,ma_tv,ten_tv,ma_sach,ten_sach,gia_thue,ngay_thue,tra_sach,ma_thu_thu);
-
-                    list_phieu.add(phieuDTO);
-
-                    c.moveToNext();
-                }
+        ArrayList<PhieuDTO> list = new ArrayList<>();
+        String sql = "SELECT * FROM phieu";
+        Cursor cursor = db.rawQuery(sql,null);
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                PhieuDTO phieuDTO = new PhieuDTO();
+                phieuDTO.setMa_phieu(cursor.getInt(0));
+                phieuDTO.setMaTT(cursor.getInt(1));
+                phieuDTO.setMaTV(cursor.getInt(2));
+                phieuDTO.setMa_sach(cursor.getInt(3));
+                phieuDTO.setTien_thue(cursor.getInt(4));
+                phieuDTO.setNgay_thue(cursor.getString(5));
+                phieuDTO.setTra_sach(cursor.getInt(6));
+                list.add(phieuDTO);
+                cursor.moveToNext();
+            }
+            cursor.close();
         }
-        return list_phieu;
+        return list;
     }
 }

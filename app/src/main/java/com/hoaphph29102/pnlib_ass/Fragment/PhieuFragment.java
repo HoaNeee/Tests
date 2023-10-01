@@ -39,17 +39,16 @@ public class PhieuFragment extends Fragment {
     PhieuAdapter phieuAdapter;
     PhieuAdapterListView phieuAdapterListView;
     PhieuDTO phieuDTO;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_phieu,container,false);
+        return inflater.inflate(R.layout.fragment_phieu, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-//        RecyclerView rc_phieu;
         ListView lv_phieu;
         FloatingActionButton fab_add_phieu;
         PhieuDAO phieuDAO;
@@ -59,32 +58,23 @@ public class PhieuFragment extends Fragment {
 
         phieuDAO = new PhieuDAO(getContext());
         list_phieu = phieuDAO.getAllPhieu();
-        if(list_phieu.isEmpty()){
-            Toast.makeText(requireContext(), "empty", Toast.LENGTH_SHORT).show();
-        }else {
+        if (list_phieu.isEmpty()) {
+            Toast.makeText(requireContext(), "empty" + list_phieu.toString(), Toast.LENGTH_SHORT).show();
+        } else {
             Toast.makeText(requireContext(), "ok", Toast.LENGTH_SHORT).show();
         }
-        phieuAdapterListView = new PhieuAdapterListView(list_phieu,getContext());
-
-//        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
-//        rc_phieu.setLayoutManager(manager);
-//
-//        rc_phieu.setAdapter(phieuAdapter);
+        phieuAdapterListView = new PhieuAdapterListView(list_phieu, getContext());
 
         lv_phieu.setAdapter(phieuAdapterListView);
 
-        fab_add_phieu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDialogAdd();
-            }
-        });
+        fab_add_phieu.setOnClickListener(v -> showDialogAdd());
 
     }
-    public void showDialogAdd(){
+
+    public void showDialogAdd() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         LayoutInflater inflater = getLayoutInflater();
-        View v = inflater.inflate(R.layout.dialog_add_phieu,null);
+        View v = inflater.inflate(R.layout.dialog_add_phieu, null);
         builder.setView(v);
         builder.setCancelable(true);
 
@@ -101,12 +91,12 @@ public class PhieuFragment extends Fragment {
 
         MemberDAO memberDAO = new MemberDAO(getContext());
         ArrayList<MemberDTO> list_mem = memberDAO.getAllMember();
-        SpinnerMember spinnerMember = new SpinnerMember(list_mem,getContext());
+        SpinnerMember spinnerMember = new SpinnerMember(list_mem, getContext());
         sp_ten_tv.setAdapter(spinnerMember);
 
         SachDAO sachDAO = new SachDAO(getContext());
         ArrayList<SachDTO> list_sach = sachDAO.getAllSach();
-        SpinnerSach spinnerSach = new SpinnerSach(list_sach,getContext());
+        SpinnerSach spinnerSach = new SpinnerSach(list_sach, getContext());
         sp_ten_sach.setAdapter(spinnerSach);
 
         btn_save.setOnClickListener(new View.OnClickListener() {
@@ -116,25 +106,23 @@ public class PhieuFragment extends Fragment {
                 String ngay_thue = ed_ngay_thue.getText().toString();
                 int ma_tv = (int) sp_ten_tv.getSelectedItemId();
                 int ma_sach = (int) sp_ten_sach.getSelectedItemId();
-                int tra_sach = cb_tra_sach.isChecked() ? 1:0;
-//PhieuDTO(int maTV, int ma_sach, int tien_thue, String ngay_thue, int tra_sach) {
+                int tra_sach = cb_tra_sach.isChecked() ? 1 : 0;
                 PhieuDAO phieuDAO = new PhieuDAO(getContext());
 
-                PhieuDTO phieuDTO = new PhieuDTO(ma_tv,ma_sach,gia_thue,ngay_thue,tra_sach);
+                PhieuDTO phieuDTO = new PhieuDTO(ma_tv, ma_sach, gia_thue, ngay_thue, tra_sach);
 
 
-                Log.d("Before",list_phieu.toString());
+                Log.d("Before", list_phieu.toString());
                 long kq = phieuDAO.AddRow(phieuDTO);
 
-                if (kq != -1){
-                    Log.d("After",list_phieu.toString());
+                if (kq != -1) {
+                    Log.d("After", list_phieu.toString());
                     list_phieu.clear();
                     list_phieu.addAll(phieuDAO.getAllPhieu());
                     phieuAdapterListView.notifyDataSetChanged();
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
-                }
-                else {
+                } else {
                     Toast.makeText(getContext(), "không thành công", Toast.LENGTH_SHORT).show();
                 }
             }

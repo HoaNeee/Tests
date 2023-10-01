@@ -41,6 +41,17 @@ public class PhieuDTO {
         this.tra_sach = tra_sach;
     }
 
+    //fix
+
+    public PhieuDTO(int ma_phieu, int maTT, int maTV, int ma_sach, int tien_thue, String ngay_thue, int tra_sach) {
+        this.ma_phieu = ma_phieu;
+        this.maTV = maTV;
+        this.ma_sach = ma_sach;
+        this.tien_thue = tien_thue;
+        this.ngay_thue = ngay_thue;
+        this.tra_sach = tra_sach;
+        this.maTT = maTT;
+    }
 
     public int getMaTT() {
         return maTT;

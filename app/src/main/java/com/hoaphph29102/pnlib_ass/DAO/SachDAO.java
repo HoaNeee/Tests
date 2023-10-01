@@ -72,4 +72,25 @@ public class SachDAO {
         }
         return list_sach;
     }
+
+
+    //fix
+
+    //get sách by id
+    public SachDTO getSachById(int id){
+        SachDTO sachDTO = new SachDTO();
+        String sql = "SELECT * FROM sach WHERE masach = ?";
+        Cursor cursor = db.rawQuery(sql,new String[]{String.valueOf(id)});
+        if(cursor.getCount() > 0){
+            cursor.moveToFirst();
+            while (!cursor.isAfterLast()){
+                sachDTO.setMa_sach(cursor.getInt(0));
+                sachDTO.setTen_sach(cursor.getString(1));
+                sachDTO.setGia_thue(cursor.getInt(2));
+                sachDTO.setMa_loai(cursor.getInt(3));
+                cursor.moveToNext();
+            }
+        }
+        return sachDTO;
+    }
 }

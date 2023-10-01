@@ -1,32 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="10dp"
+    android:orientation="vertical"
 
     >
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phiếu"
         android:gravity="center"
-        android:textStyle="bold"
-        />
+        android:text="Phiếu"
+        android:textStyle="bold" />
+
     <ListView
         android:id="@+id/lv_phieu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-<!--    <androidx.recyclerview.widget.RecyclerView-->
-<!--        android:id="@+id/rc_phieu"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="0dp"-->
-<!--        android:layout_weight="1"-->
-
-<!--        >-->
-
-<!--    </androidx.recyclerview.widget.RecyclerView>-->
+        android:layout_weight="1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_phieu"
@@ -35,7 +27,6 @@
         android:layout_gravity="end"
         android:layout_margin="5dp"
         android:contentDescription="@string/add_phieu"
-        android:src="@drawable/plus"
-        />
+        android:src="@drawable/plus" />
 
 </LinearLayout>
