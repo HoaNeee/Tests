@@ -1,111 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textStyle="bold"
-        android:textSize="30dp"
-        android:text="Thêm Phiếu"
         android:gravity="center"
-        />
+        android:text="Thêm Phiếu"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mã Phiểu:"
         android:layout_marginLeft="10dp"
-        android:textSize="12dp"
-        />
+        android:text="Mã Phiểu:"
+        android:textSize="12dp" />
 
     <Spinner
         android:id="@+id/sp_ten_tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
-        />
+        android:layout_marginBottom="10dp"
+        android:padding="10dp" />
+
     <Spinner
         android:id="@+id/sp_ten_sach"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:layout_marginBottom="10dp"
         android:layout_marginTop="5dp"
-
-        />
+        android:layout_marginBottom="10dp"
+        android:padding="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="70dp"
             android:layout_height="wrap_content"
-            android:text="Giá thuê: "
             android:layout_marginLeft="10dp"
-            />
+            android:text="Giá thuê: " />
+
         <EditText
             android:id="@+id/ed_gia_thue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập giá"
-            />
+            android:hint="Nhập giá" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginBottom="10dp"
-        >
+        android:orientation="horizontal">
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Ngày thuê: "
             android:layout_marginLeft="10dp"
-            />
+            android:text="Ngày thuê: " />
+
         <EditText
             android:id="@+id/ed_ngay_thue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nhập giá"
-            />
+            android:hint="Nhập giá" />
     </LinearLayout>
+
     <CheckBox
         android:id="@+id/cb_tra_sach"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Đã trả sách"
-        android:textStyle="bold"
         android:layout_marginBottom="30dp"
-        />
+        android:text="Đã trả sách"
+        android:textStyle="bold" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:gravity="center"
-        >
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/btn_cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cancel"
             android:layout_marginRight="70dp"
             android:backgroundTint="#03A9F4"
-            />
+            android:text="Cancel" />
+
         <Button
             android:id="@+id/btn_save"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save"
             android:backgroundTint="#03A9F4"
-            />
+            android:text="Save" />
     </LinearLayout>
 </LinearLayout>
