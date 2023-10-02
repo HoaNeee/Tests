@@ -73,15 +73,15 @@ public class PhieuAdapterListView extends BaseAdapter {
 
 
         tv_ma_phieu.setText("Mã phiếu: " + phieuDTO.getMa_phieu());
-        tv_ten_tv.setText("Mã thành viên: " + memberDTO.getTen_tv());
+        tv_ten_tv.setText("Thành viên: " + memberDTO.getTen_tv());
         tv_ten_sach.setText("Tên sách: " + sachDTO.getTen_sach());
         tv_gia_thue.setText("Tiền thuê: " + phieuDTO.getTien_thue());
         tv_ngay_thue.setText("Ngày thuê: " + phieuDTO.getNgay_thue()+"");
         if (phieuDTO.getTra_sach() == 1){
-            tv_tra_sach.setText("Trạng thái: Đã trả");
+            tv_tra_sach.setText("Đã trả sách");
         }
         else {
-            tv_tra_sach.setText("Trạng thái: Chưa trả");
+            tv_tra_sach.setText("Chưa trả sách");
         }
 
         //end fix lỗi

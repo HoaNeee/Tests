@@ -7,18 +7,11 @@
 
     >
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="Phiếu"
-        android:textStyle="bold" />
-
-    <ListView
-        android:id="@+id/lv_phieu"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rc_phieu"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_add_phieu"

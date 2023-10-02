@@ -11,7 +11,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.hoaphph29102.pnlib_ass.DAO.MemberDAO;
+import com.hoaphph29102.pnlib_ass.DAO.SachDAO;
+import com.hoaphph29102.pnlib_ass.DTO.MemberDTO;
 import com.hoaphph29102.pnlib_ass.DTO.PhieuDTO;
+import com.hoaphph29102.pnlib_ass.DTO.SachDTO;
 import com.hoaphph29102.pnlib_ass.R;
 
 import java.util.ArrayList;
@@ -41,12 +45,25 @@ public class PhieuAdapter extends RecyclerView.Adapter<PhieuAdapter.viewHolder>{
     public void onBindViewHolder(@NonNull viewHolder holder, int position) {
         PhieuDTO phieuDTO = list_phieu.get(position);
 
-        holder.tv_ma_phieu.setText(phieuDTO.getMa_phieu()+"");
-        holder.tv_ho_ten.setText(phieuDTO.getTen_TV());
-        holder.tv_sach.setText(phieuDTO.getTen_sach());
-        holder.tv_gia_thue.setText(phieuDTO.getTien_thue()+"");
-        holder.tv_ngay_thue.setText(phieuDTO.getNgay_thue()+"");
-        holder.tv_tra_sach.setText(phieuDTO.getTra_sach()+"");
+        SachDAO sachDAO = new SachDAO(context);
+        SachDTO sachDTO = sachDAO.getSachById(phieuDTO.getMa_sach());
+
+        MemberDAO memberDAO = new MemberDAO(context);
+        MemberDTO memberDTO = memberDAO.getMemberById(phieuDTO.getMaTV());
+
+
+
+        holder.tv_ma_phieu.setText("Mã phiếu: " + phieuDTO.getMa_phieu());
+        holder.tv_ho_ten.setText("Mã thành viên: " + memberDTO.getTen_tv());
+        holder.tv_sach.setText("Tên sách: " + sachDTO.getTen_sach());
+        holder.tv_gia_thue.setText("Tiền thuê: " + phieuDTO.getTien_thue());
+        holder.tv_ngay_thue.setText("Ngày thuê: " + phieuDTO.getNgay_thue()+"");
+        if (phieuDTO.getTra_sach() == 1){
+            holder.tv_tra_sach.setText("Trạng thái: Đã trả");
+        }
+        else {
+            holder.tv_tra_sach.setText("Trạng thái: Chưa trả");
+        }
 
     }
 

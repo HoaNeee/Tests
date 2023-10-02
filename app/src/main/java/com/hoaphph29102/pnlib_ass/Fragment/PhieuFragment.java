@@ -49,23 +49,27 @@ public class PhieuFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ListView lv_phieu;
         FloatingActionButton fab_add_phieu;
         PhieuDAO phieuDAO;
+        RecyclerView rc_phieu;
 
         fab_add_phieu = view.findViewById(R.id.fab_add_phieu);
-        lv_phieu = view.findViewById(R.id.lv_phieu);
+        rc_phieu = view.findViewById(R.id.rc_phieu);
 
         phieuDAO = new PhieuDAO(getContext());
         list_phieu = phieuDAO.getAllPhieu();
-        if (list_phieu.isEmpty()) {
-            Toast.makeText(requireContext(), "empty" + list_phieu.toString(), Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(requireContext(), "ok", Toast.LENGTH_SHORT).show();
-        }
-        phieuAdapterListView = new PhieuAdapterListView(list_phieu, getContext());
+//        if (list_phieu.isEmpty()) {
+//            Toast.makeText(requireContext(), "empty" + list_phieu.toString(), Toast.LENGTH_SHORT).show();
+//        } else {
+//            Toast.makeText(requireContext(), "ok", Toast.LENGTH_SHORT).show();
+//        }
 
-        lv_phieu.setAdapter(phieuAdapterListView);
+        phieuAdapter = new PhieuAdapter(getContext(), list_phieu);
+        LinearLayoutManager manager = new LinearLayoutManager(getContext(),LinearLayoutManager.VERTICAL,false);
+        rc_phieu.setLayoutManager(manager);
+
+
+        rc_phieu.setAdapter(phieuAdapter);
 
         fab_add_phieu.setOnClickListener(v -> showDialogAdd());
 
@@ -119,7 +123,7 @@ public class PhieuFragment extends Fragment {
                     Log.d("After", list_phieu.toString());
                     list_phieu.clear();
                     list_phieu.addAll(phieuDAO.getAllPhieu());
-                    phieuAdapterListView.notifyDataSetChanged();
+                    phieuAdapter.notifyDataSetChanged();
                     Toast.makeText(getContext(), "Thanh cong", Toast.LENGTH_SHORT).show();
                     dialog.dismiss();
                 } else {

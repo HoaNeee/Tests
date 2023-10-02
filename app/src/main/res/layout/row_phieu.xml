@@ -22,7 +22,6 @@
                 android:id="@+id/tv_ma_phieu"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="7dp"
                 android:text="Mã phiểu"
                 android:textSize="8dp" />
 
@@ -30,7 +29,6 @@
                 android:id="@+id/tv_ho_ten"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:text="Tên thành viên"
                 android:textSize="11dp"
                 android:textStyle="bold" />
@@ -39,7 +37,6 @@
                 android:id="@+id/tv_ten_sach"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:text="Tên sách"
                 android:textStyle="bold" />
 
@@ -47,7 +44,6 @@
                 android:id="@+id/tv_tien"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
                 android:text="Tiền thuê"
                 android:textSize="8dp" />
 
@@ -58,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:layout_marginLeft="70dp"
+            android:layout_marginLeft="50dp"
             android:orientation="vertical">
 
             <TextView

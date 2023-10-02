@@ -61,7 +61,7 @@ public class PhieuDAO {
         values.put("maTV",phieuDTO.getMaTV());
         values.put("masach",phieuDTO.getMa_sach());
         values.put("tienthue",phieuDTO.getTien_thue());
-//        values.put("ngay",phieuDTO.getNgay_thue());
+        values.put("ngay",phieuDTO.getNgay_thue());
         values.put("trasach",phieuDTO.getTra_sach());
 
         String[] dieukien = new String[]{String.valueOf(phieuDTO.getMa_phieu())};
